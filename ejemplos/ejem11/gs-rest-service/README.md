@@ -72,14 +72,14 @@ El fichero Dockerfile contiene dos instrucciones **FROM** porque tiene dos pasos
 
 ### Fase de Construccion
 Se creara una imagen basada en Maven  para construir el proyecto (.jar)
->FROM maven:3.6.3-jdk-11-slim **AS maven_build**
- RUN mvn clean package
+> FROM maven:3.6.3-jdk-11-slim **AS maven_build**
+> RUN mvn clean package
 
 ### Fase de Empaquetado
 Ahora que tenemos el .jar usaremos esta imagen que hemos nombrado **maven_build**
 para construir la imagen que ejecutara la aplicacion.
 
 > FROM openjdk:11-jre-slim
-COPY **--from=maven_build** /usr/src/app/target/${JAR_NAME}.jar ./app.jar
-CMD ["java","-jar", "./app.jar"]
+> COPY **--from=maven_build** /usr/src/app/target/${JAR_NAME}.jar ./app.jar
+> CMD ["java","-jar", "./app.jar"]
 
