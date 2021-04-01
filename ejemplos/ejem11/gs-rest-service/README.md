@@ -81,6 +81,8 @@ Ahora que tenemos el .jar usaremos esta imagen que hemos nombrado **maven_build*
 para construir la imagen que ejecutara la aplicacion.
 
 > FROM openjdk:11-jre-slim
+> 
 > COPY **--from=maven_build** /usr/src/app/target/${JAR_NAME}.jar ./app.jar
+> 
 > CMD ["java","-jar", "./app.jar"]
 
