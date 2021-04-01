@@ -73,6 +73,7 @@ El fichero Dockerfile contiene dos instrucciones **FROM** porque tiene dos pasos
 ### Fase de Construccion
 Se creara una imagen basada en Maven  para construir el proyecto (.jar)
 > FROM maven:3.6.3-jdk-11-slim **AS maven_build**
+> 
 > RUN mvn clean package
 
 ### Fase de Empaquetado
